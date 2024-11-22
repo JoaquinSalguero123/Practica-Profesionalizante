@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAME</title>
+    <link rel="stylesheet" href="http://localhost/guarde/styles.css">
+
+</head>
+<body id="game">
+    <div id="game-container">
+        <div id="Player">
+            <div id="username-display"></div>
+            <div id="score">Puntuación: 0</div>
+        </div>
+        <div id="max-score">Máxima Puntuación: 0 (por Nadie)</div>
+        <div id="game-over" class="hidden">
+            <h1>¡Juego Terminado!</h1>
+            <p id="final-score"></p>
+            <button id="restart-button">Jugar de Nuevo</button>
+        </div>
+        <input type="text" id="input" autocomplete="off" placeholder="Escribe aquí...">
+    </div>
+    <script src="game.js"></script>
+
+   
+    <audio id="musicPlayer" controls autoplay>
+        <source id="audioSource" src="" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const images = [
+            'Imagenes/musica.gif',
+            'Imagenes/Triangulo.gif',
+            'Imagenes/ALOAzul.gif',
+            'Imagenes/Infinito.gif',
+            'Imagenes/Load.gif',
+            'Imagenes/Ojo.gif',
+            'Imagenes/ON.gif',
+            'Imagenes/Rectangulo.gif',
+            'Imagenes/2Sigsag.gif',
+            'Imagenes/3Aurora.gif',
+            'Imagenes/4Linea.gif',
+            'Imagenes/1AloRosa.gif'
+
+        ];
+
+        // Selecciona un índice aleatorio del array
+        const randomIndex = Math.floor(Math.random() * images.length);
+
+        // Selecciona el div
+        const myDiv = document.getElementById('game-container');
+
+        // Cambia el fondo del div con la imagen aleatoria
+        myDiv.style.backgroundImage = `url(${images[randomIndex]})`;
+    </script>
+    <script>
+        // Lista de archivos de audio
+        const tracks = [
+            'Audios/gaming-hard-164122.mp3',
+            'Audios/neon-gaming-128925.mp3',
+            'Audios/retro-games-glitch-technology-synthwave-199939.mp3',
+
+        ];
+
+        function playRandomTrack() {
+            // Seleccionar un índice aleatorio
+            const randomIndex = Math.floor(Math.random() * tracks.length);
+            
+            // Obtener el reproductor y el origen del audio
+            const audio = document.getElementById('musicPlayer');
+            const source = document.getElementById('audioSource');
+            
+            // Establecer la nueva fuente y reproducir
+            source.src = tracks[randomIndex];
+            audio.load();
+            audio.play();
+        }
+
+        // Reproducir una pista aleatoria al cargar la página
+        window.onload = playRandomTrack;
+    </script>
+    
+ 
+</body>
+</html>
+
+

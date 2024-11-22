@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAME</title>
+    <link rel="stylesheet" href="http://localhost/guarde/styles.css">
+      
+</head>
+<body id ='lista_jugadores'>
+    <div id="player-list-container">
+        <h2>Lista de Jugadores</h2>
+        <ul id="player-list">
+            <!-- La lista de jugadores será cargada aquí -->
+        </ul>
+
+        <!-- Input para ingresar el código de autorización -->
+        <label for="auth-code">Código de autorización para eliminar todos:</label>
+        <input type="password" id="auth-code">
+        <br>
+
+        <!-- Botón para eliminar a todos los jugadores -->
+        <button onclick="deleteAllPlayers()">Eliminar todos los jugadores</button>
+        
+        <br><br>
+        <a href="index.html">Volver al Inicio</a>
+    </div>
+
+    <script src="ListaJugadores.js"></script>
+
+    
+    <audio id="musicPlayer" controls autoplay>
+        <source id="audioSource" src="" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const images = [
+            'Imagenes/AZUL.jpg',
+            'Imagenes/lineas.jpg',
+            'Imagenes/Celeste.jpg',
+            'Imagenes/LineasRectas.jpg'
+        ];
+
+        // Selecciona un índice aleatorio del array
+        const randomIndex = Math.floor(Math.random() * images.length);
+
+        // Selecciona el div
+        const myDiv = document.getElementById('player-list-container');
+
+        // Cambia el fondo del div con la imagen aleatoria
+        myDiv.style.backgroundImage = `url(${images[randomIndex]})`;
+    </script>
+
+
+
+    <script>
+        // Lista de archivos de audio
+        const tracks = [
+            'Audios/gaming-hard-164122.mp3',
+            'Audios/neon-gaming-128925.mp3',
+            'Audios/retro-games-glitch-technology-synthwave-199939.mp3',
+
+        ];
+
+        function playRandomTrack() {
+            // Seleccionar un índice aleatorio
+            const randomIndex = Math.floor(Math.random() * tracks.length);
+            
+            // Obtener el reproductor y el origen del audio
+            const audio = document.getElementById('musicPlayer');
+            const source = document.getElementById('audioSource');
+            
+            // Establecer la nueva fuente y reproducir
+            source.src = tracks[randomIndex];
+            audio.load();
+            audio.play();
+        }
+
+        // Reproducir una pista aleatoria al cargar la página
+        window.onload = playRandomTrack;
+    </script>
+ 
+</body>
+</html>
+
+
+

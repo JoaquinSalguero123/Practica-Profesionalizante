@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAME</title>
+    <link rel="stylesheet" href="http://localhost/guarde/styles.css">
+    <link rel="icon" href="Imagenes/descarga.png" type="image/png">
+
+
+</head>
+<body id="index">
+    
+    <div id="start-container">
+        <h1>Bienvenido al Juego</h1>
+        <input type="text" id="username" pattern="[A-Za-z0-9]+" autocomplete="off" placeholder="Ingresa tu nombre...">
+        
+        <!-- Selector de dificultad -->
+        <label for="difficulty-select">Selecciona la dificultad</label>
+        <select id="difficulty-select">
+            <option id="Fácil" value="1">Fácil</option>
+            <option id="Medio" value="2">Medio</option>
+            <option id="Difícil" value="3">Difícil</option>
+        </select>
+        <button id="start-button" >Iniciar Juego</button>
+        
+        <form  id="file-upload-form" enctype="multipart/form-data">
+            <label id="letra" for="word-file"> Subir archivo TXT con palabras <br> ( separadas por ; )</label>
+            <input type="file" id="word-file" name="word-file" accept=".txt">
+        </form>
+    </div>
+    <div id="link-container" style="padding: 25px 0 0 0 ; ">
+        <a href="lista_jugadores.html">Ver Lista de Jugadores</a>
+    </div>
+
+    <audio controls autoplay>
+        <source src="Audios/stranger-things-124008.mp3" type="audio/mpeg">
+       
+    </audio>
+    <script>
+        const images = [
+            'Imagenes/PlanetaAzul.gif',
+            'Imagenes/PlanetaCe.gif',
+            'Imagenes/PlanetaNegro.gif',
+            'Imagenes/planetarojo.gif',
+            'Imagenes/PlanetaVerde.gif',
+            'Imagenes/PlanetaRosa.gif'
+        ];
+
+        // Selecciona un índice aleatorio del array
+        const randomIndex = Math.floor(Math.random() * images.length);
+
+        // Selecciona el div
+        const myDiv = document.getElementById('start-container');
+
+        // Cambia el fondo del div con la imagen aleatoria
+        myDiv.style.backgroundImage = `url(${images[randomIndex]})`;
+    </script>
+    
+
+        
+    
+
+    <script src="index.js"></script>
+</body>
+</html>
